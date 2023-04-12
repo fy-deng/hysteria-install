@@ -1,0 +1,18 @@
+{
+    "protocol": "$protocol",
+    "server": "$hy_ym:$last_port"
+    "server_name": "$domain",
+    "alpn": "h3",
+    "up_mbps": 50,
+    "down_mbps": 150,
+    "auth_str": "$auth_pwd",
+    "insecure": true,
+    "retry": 3,
+    "retry_interval": 3,
+    "fast_open": true,
+    "lazy_start": true,
+    "hop_interval": 60,
+    "socks5": {
+        "listen": "127.0.0.1:1080"
+    }
+}

@@ -1,26 +1,34 @@
 ## [hysteria](https://github.com/apernet/hysteria) 安装指南
 
-1. 下载程序（**linux-amd64**）
+1. 下载程序
+
+//**linux-amd64**
 
 ```
-curl -Lo /root/hysteria https://github.com/apernet/hysteria/releases/latest/download/hysteria-linux-amd64 && chmod +x /root/hysteria
+sudo rm -f /usr/local/bin/hysteria && curl -Lo /usr/local/bin/hysteria https://github.com/apernet/hysteria/releases/latest/download/hysteria-linux-amd64 && chmod +x /usr/local/bin/hysteria
+```
+
+//**linux-arm64**
+
+```
+sudo rm -f /usr/local/bin/hysteria && curl -Lo /usr/local/bin/hysteria https://github.com/apernet/hysteria/releases/latest/download/hysteria-linux-arm64 && chmod +x /usr/local/bin/hysteria
 ```
 
 2. 下载配置
 
 ```
-curl -Lo /root/hysteria_config.json https://raw.githubusercontent.com/chika0801/hysteria-install/main/config_server.json
+sudo mkdir -p /etc/hysteria && curl -Lo /etc/hysteria/config.json https://raw.githubusercontent.com/fy-deng/hysteria-install/diy/config_server.json
 ```
 
 3. 下载systemctl配置
 
 ```
-curl -Lo /etc/systemd/system/hysteria.service https://raw.githubusercontent.com/chika0801/hysteria-install/main/hysteria.service && systemctl daemon-reload
+curl -Lo /etc/systemd/system/hysteria.service https://raw.githubusercontent.com/fy-deng/hysteria-install/diy/hysteria.service && systemctl daemon-reload
 ```
 
 4. 上传证书和私钥
 
-- 将证书文件改名为 **fullchain.cer**，将私钥文件改名为 **private.key**，将它们上传到 **/root** 目录。
+- 将证书文件改名为 **cert.crt**，将私钥文件改名为 **private.key**，将它们上传到 **/etc/ssl/private/** 目录。
 
 5. [多端口（端口跳跃）](https://hysteria.network/zh/docs/port-hopping/)配置
 
@@ -68,9 +76,9 @@ systemctl enable --now hysteria && sleep 0.2 && systemctl status hysteria
 
 | 项目 | |
 | :--- | :--- |
-| 程序 | **/root/hysteria** |
-| 配置 | **/root/hysteria_config.json** |
-| 检查 | `/root/hysteria server -c hysteria_config.json` |
+| 程序 | **/usr/local/bin/hysteria** |
+| 配置 | **/etc/hysteria/config.json** |
+| 检查 | `/usr/local/bin/hysteria server -c /etc/hysteria/config.json` |
 | 查看日志 | `journalctl -u hysteria --output cat -e` |
 | 实时日志 | `journalctl -u hysteria --output cat -f` |
 

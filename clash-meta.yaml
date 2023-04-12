@@ -1,0 +1,36 @@
+mixed-port: 7890
+external-controller: 127.0.0.1:9090
+allow-lan: false
+mode: rule
+log-level: debug
+ipv6: true
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  enhanced-mode: fake-ip
+  nameserver:
+    - 8.8.8.8
+    - 1.1.1.1
+    - 114.114.114.114
+proxies:
+  - name: Misaka-Hysteria
+    type: hysteria
+    server: $hy_ym
+    port: $port
+    auth_str: $auth_pwd
+    alpn:
+      - h3
+    protocol: $protocol
+    up: 20
+    down: 100
+    sni: $domain
+    skip-cert-verify: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Misaka-Hysteria
+      
+rules:
+  - GEOIP,CN,DIRECT
+  - MATCH,Proxy

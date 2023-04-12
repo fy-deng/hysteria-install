@@ -1,8 +1,8 @@
 {
     "protocol": "udp",
     "listen": ":16385",
-    "cert": "/root/fullchain.cer",
-    "key": "/root/private.key",
+    "cert": "/etc/ssl/private/cert.crt",
+    "key": "/etc/ssl/private/private.key",
     "alpn": "h3",
     "auth": {
         "mode": "passwords",

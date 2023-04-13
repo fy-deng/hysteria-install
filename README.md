@@ -17,7 +17,7 @@ sudo rm -f /usr/local/bin/hysteria && curl -Lo /usr/local/bin/hysteria https://g
 2. 下载配置
 
 ```
-sudo mkdir -p /etc/hysteria && curl -Lo /etc/hysteria/config.json https://raw.githubusercontent.com/fy-deng/hysteria-install/diy/config_server.json
+sudo mkdir -p /etc/hysteria && curl -Lo /etc/hysteria/config.json https://raw.githubusercontent.com/fy-deng/hysteria-install/diy/config_server.json && chmod +x /etc/hysteria/config.json
 ```
 
 3. 下载systemctl配置

@@ -5,25 +5,25 @@
 //**linux-amd64**
 
 ```
-sudo rm -f /usr/local/bin/hysteria && curl -Lo /usr/local/bin/hysteria https://github.com/apernet/hysteria/releases/latest/download/hysteria-linux-amd64 && chmod +x /usr/local/bin/hysteria
+sudo curl -Lo /usr/local/bin/hysteria https://github.com/apernet/hysteria/releases/latest/download/hysteria-linux-amd64 && sudo chmod +x /usr/local/bin/hysteria
 ```
 
 //**linux-arm64**
 
 ```
-sudo rm -f /usr/local/bin/hysteria && curl -Lo /usr/local/bin/hysteria https://github.com/apernet/hysteria/releases/latest/download/hysteria-linux-arm64 && chmod +x /usr/local/bin/hysteria
+sudo curl -Lo /usr/local/bin/hysteria https://github.com/apernet/hysteria/releases/latest/download/hysteria-linux-arm64 && sudo chmod +x /usr/local/bin/hysteria
 ```
 
 2. 下载配置
 
 ```
-sudo mkdir -p /etc/hysteria && curl -Lo /etc/hysteria/config.json https://raw.githubusercontent.com/fy-deng/hysteria-install/diy/config_server.json && chmod +x /etc/hysteria/config.json
+sudo curl -Lo /etc/hysteria/config.json https://raw.githubusercontent.com/fy-deng/hysteria-install/diy/config_server.json && sudo chmod +x /etc/hysteria/config.json
 ```
 
 3. 下载systemctl配置
 
 ```
-curl -Lo /etc/systemd/system/hysteria.service https://raw.githubusercontent.com/fy-deng/hysteria-install/diy/hysteria.service && systemctl daemon-reload
+sudo curl -Lo /etc/systemd/system/hysteria.service https://raw.githubusercontent.com/fy-deng/hysteria-install/diy/hysteria.service && sudo systemctl daemon-reload
 ```
 
 4. 上传证书和私钥
@@ -71,7 +71,7 @@ netfilter-persistent save
 6. 启动程序
 
 ```
-systemctl enable --now hysteria && sleep 0.2 && systemctl status hysteria
+sudo systemctl enable hysteria && sudo systemctl start hysteria && sudo systemctl status hysteria
 ```
 
 | 项目 | |

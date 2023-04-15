@@ -11,6 +11,9 @@ NoNewPrivileges=true
 WorkingDirectory=/etc/hysteria
 Environment=HYSTERIA_LOG_LEVEL=info
 ExecStart=/usr/local/bin/hysteria -c /etc/hysteria/config.json server
+ExecReload=/bin/kill -HUP $MAINPID
+KillSignal=SIGINT
+TimeoutStopSec=5
 Restart=on-failure
 RestartPreventExitStatus=1
 RestartSec=5

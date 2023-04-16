@@ -5,14 +5,14 @@
 //**linux-amd64**
 
 ```
-sudo curl -Lo /usr/local/bin/hysteria https://github.com/apernet/hysteria/releases/latest/download/hysteria-linux-amd64 && \ 
+sudo curl -Lo /usr/local/bin/hysteria https://github.com/apernet/hysteria/releases/latest/download/hysteria-linux-amd64 && \
 sudo chmod +x /usr/local/bin/hysteria
 ```
 
 //**linux-arm64**
 
 ```
-sudo curl -Lo /usr/local/bin/hysteria https://github.com/apernet/hysteria/releases/latest/download/hysteria-linux-arm64 && \ 
+sudo curl -Lo /usr/local/bin/hysteria https://github.com/apernet/hysteria/releases/latest/download/hysteria-linux-arm64 && \
 sudo chmod +x /usr/local/bin/hysteria
 ```
 
@@ -20,7 +20,7 @@ sudo chmod +x /usr/local/bin/hysteria
 
 ```
 sudo mkdir /etc/hysteria/ && \
-sudo curl -Lo /etc/hysteria/config.json https://raw.githubusercontent.com/fy-deng/hysteria-install/diy/config_server.json && \ 
+sudo curl -Lo /etc/hysteria/config.json https://raw.githubusercontent.com/fy-deng/hysteria-install/diy/config_server.json && \
 sudo chmod 644 /etc/hysteria/config.json
 ```
 
